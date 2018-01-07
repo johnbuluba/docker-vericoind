@@ -34,5 +34,6 @@ WORKDIR /data
 
 HEALTHCHECK --retries=10 CMD /usr/local/bin/vericoind -conf=/data/vericoin.conf getinfo || exit 1
 
+LABEL maintainer="buluba89@gmail.com"
 CMD ["/start.sh"]    
 
