@@ -1,0 +1,21 @@
+version: "3"
+
+
+services:
+  vericoind:
+    image: buluba89/vericoind:latest
+    volumes:
+      #Mount a local folder for vericoin data.This folder will be used 
+      #for storing the blockchain as well as vericoin.conf and your wallet. 
+      - /path/to/data:/data
+      #You can copy your wallet in data folder or mount it like this:
+      - /path/to/wallet.dat:/data/wallet.dat
+    #This is needed for upnp to work
+    network_mode: host
+    #Forwarding ports is needed when using swarm mode or not settin 'network_mode:host'
+    ports:
+     - "58683:58683"
+    environment:
+            #A script that runs after vericoind has started, for example to unlock your wallet for staking
+      #You can copy it in the data volume or mount it in volumes
+      INIT_SCRIPT: "/data/script.sh"
