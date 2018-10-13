@@ -28,7 +28,7 @@ ADD start.sh .
 
 VOLUME ["/data"]
 
-EXPOSE 58683
+EXPOSE 58683 58684
 
 WORKDIR /data
 
