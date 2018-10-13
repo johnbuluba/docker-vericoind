@@ -32,7 +32,7 @@ EXPOSE 58683 58684
 
 WORKDIR /data
 
-HEALTHCHECK --start-period=DURATION=5m --interval=2m --retries=10 CMD /usr/local/bin/vericoind -conf=/data/vericoin.conf getinfo || exit 1
+HEALTHCHECK --start-period=5m --interval=2m --retries=10 CMD /usr/local/bin/vericoind -conf=/data/vericoin.conf getinfo || exit 1
 
 LABEL maintainer="buluba89@gmail.com"
 CMD ["/start.sh"]    
